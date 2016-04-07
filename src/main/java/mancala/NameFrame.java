@@ -142,6 +142,8 @@ public class NameFrame extends JFrame {
 
 	public static void main(String[] args) {
 		new NameFrame().setVisible(true);
+		//injector.Inject...
+		//new BoardGuiNumbers("a", "b").setVisible(true);
 	}
 
 }
