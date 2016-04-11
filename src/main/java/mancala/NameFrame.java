@@ -132,8 +132,8 @@ public class NameFrame extends JFrame {
 					return;
 				}
 				dispose();
-				BoardGuiPix gui = new BoardGuiPix(name1, name2);
-				gui.setVisible(true);
+				//BoardGuiPix gui = new BoardGuiPix(name1, name2);
+				//gui.setVisible(true);
 			}
 
 		});
