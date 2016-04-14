@@ -3,6 +3,7 @@ package mancala;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,6 +13,10 @@ import javax.swing.JPanel;
 public class BoardScreen extends JFrame {
 
 	private Container container;
+	private TopPanel top;
+	private BottomPanel bottom; 
+	private CenterPanel center;
+
 	
 	public BoardScreen() {
 		setTitle("Mancala");
@@ -21,46 +26,24 @@ public class BoardScreen extends JFrame {
 		setLocationRelativeTo(null);
 		//setLayout(new BorderLayout());
 		
-		setIconImage(new ImageIcon(getClass().getResource("/mancala.jpg"))
-		.getImage());
-
 		setContentPane(new JLabel(new ImageIcon(getClass().getResource(
 				"/mancala board.jpg"))));
 		container = getContentPane();
 		container.setLayout(new BorderLayout());
 		
+		setIconImage(new ImageIcon(getClass().getResource("/mancala.jpg"))
+		.getImage());
+
 		addPanels();
 	}
 
 	private void addPanels() {
-		JPanel top, bottom, center;
-		top = new JPanel(new BorderLayout());
-		bottom = new JPanel(new BorderLayout());
-		center = new JPanel(new BorderLayout());
-		//top.setOpaque(false);
-		//bottom.setOpaque(false);
-		center.setOpaque(false);
-		add(top, BorderLayout.PAGE_START);
-		add(bottom, BorderLayout.PAGE_END);
-		add(center, BorderLayout.CENTER);
-		addTopPanel(top);
-		addBottomPanel(bottom);
-		addCenterPanel(center);
+		top = new TopPanel();
+		bottom = new BottomPanel();
+		center = new CenterPanel(top, bottom);
+		container.add(top, BorderLayout.PAGE_START);
+		container.add(bottom, BorderLayout.PAGE_END);
+		container.add(center, BorderLayout.CENTER);
 	}
 
-	private void addCenterPanel(JPanel center) {
-		
-	}
-
-	private void addBottomPanel(JPanel bottom) {
-		JLabel black = new JLabel();
-		black.setBackground(Color.GREEN);
-		bottom.add(black,  BorderLayout.PAGE_END);
-	}
-
-	private void addTopPanel(JPanel top) {
-		JLabel black = new JLabel();
-		black.setBackground(Color.ORANGE);
-		top.add(black,  BorderLayout.PAGE_START);
-	}
 }
