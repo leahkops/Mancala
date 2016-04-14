@@ -10,31 +10,39 @@ import java.awt.LayoutManager;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class BottomPanel extends JPanel {
 
 	private JPanel pieceInfo;
 	private JLabel[] labels;
+	private JLabel player1;
+	private Font f;
 
 	public BottomPanel() {
 		super(new BorderLayout());
 		setBackground(new Color(0, 0, 0, 0));
 		setOpaque(false);
-		JLabel black = new JLabel(" ");
-		black.setPreferredSize(new Dimension(40, 65));
+		
+		f = new Font("Arial", Font.BOLD, 20);
+		labels = new JLabel[7];
+
 		addPieceInfo();
-		add(black, BorderLayout.PAGE_END);
 	}
 
 	private void addPieceInfo() {
-		JPanel numPanel = new JPanel(new BorderLayout());
-		numPanel.setBackground(new Color(0,0,0,0));
-		pieceInfo = new JPanel(new GridLayout(1, 7));
-		pieceInfo.setPreferredSize(new Dimension(90, 100));
-		pieceInfo.setBackground(new Color(0,0,0,0));
+		player1 = new JLabel("Player 1 > > >", SwingConstants.LEFT);
+		player1.setPreferredSize(new Dimension(40, 65));
+		player1.setForeground(Color.YELLOW);
+		player1.setFont(f);
+		add(player1, BorderLayout.PAGE_END);
+		
+		JPanel numPanel = new Panel(new BorderLayout(), 90, 100);
+		pieceInfo = new Panel(new GridLayout(1, 7), 90, 100);
+		
 		JLabel space = new JLabel(" ");
 		space.setPreferredSize(new Dimension(205, 10));
-		labels = new JLabel[7];
+		
 		for(int i = 0; i < 7; i++){
 			labels[i] = new JLabel("4");
 			labels[i].setForeground(Color.MAGENTA);
