@@ -12,7 +12,7 @@ public class BoardScreen extends JFrame {
 	private Container container;
 	private TopPanel player2;
 	private BottomPanel player1; 
-	private CenterPanel board;
+	private GamePanel board;
 	private int player;
 	//private boolean computer;
 
@@ -39,7 +39,7 @@ public class BoardScreen extends JFrame {
 	private void addPanels() {
 		player2 = new TopPanel();
 		player1 = new BottomPanel();
-		board = new CenterPanel(player2, player1, player);
+		board = new GamePanel(player2, player1, player);
 		container.add(player2, BorderLayout.PAGE_START);
 		container.add(player1, BorderLayout.PAGE_END);
 		container.add(board, BorderLayout.CENTER);
