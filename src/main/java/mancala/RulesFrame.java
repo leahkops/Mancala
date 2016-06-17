@@ -98,8 +98,8 @@ public class RulesFrame extends JFrame {
 
 	}
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		RulesFrame frame = new RulesFrame();
 		frame.setVisible(true);
-	}*/
+	}
 }
